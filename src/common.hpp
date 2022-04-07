@@ -1,8 +1,14 @@
-//
-// Created by kvk1920 on 4/6/22.
-//
+#pragma once
 
-#ifndef DATAVIS_SRC_COMMON_HPP_
-#define DATAVIS_SRC_COMMON_HPP_
+#include <stdexcept>
 
-#endif //DATAVIS_SRC_COMMON_HPP_
+inline void Verify(bool expr, const char* msg) {
+  if (!expr) {
+    throw std::logic_error(msg);
+  }
+}
+
+#define STRINGIFY(x) STRINGIFY_IMPL(x)
+#define STRINGIFY_IMPL(x) #x
+
+#define VERIFY(expr) Verify((expr), __FILE__ ":" STRINGIFY(__LINE__) ": Verification failed: \"" #expr "\"")

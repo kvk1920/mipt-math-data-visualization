@@ -1,8 +1,16 @@
-//
-// Created by kvk1920 on 4/6/22.
-//
+#pragma once
 
-#ifndef DATAVIS_SRC_GRAPHML_HPP_
-#define DATAVIS_SRC_GRAPHML_HPP_
+#include <iosfwd>
+#include <vector>
 
-#endif //DATAVIS_SRC_GRAPHML_HPP_
+struct Graph {
+  struct Edge {
+    int source;
+    int target;
+  };
+
+  int num_nodes;
+  std::vector<Edge> edges;
+};
+
+Graph ParseGraphML(std::istream& in);

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<svg>
+	<rect x="0" width="10" y="0" height="110" fill="white" />
+	<line x1="5" x2="5" y1="5" y2="25" stroke-width="0.1" stroke="black" />
+	<circle cx="5" cy="5" r="2" fill="red" stroke="black" stroke-width="0.2" />
+	<circle cx="5" cy="25" r="2" fill="red" stroke="black" stroke-width="0.2" />
+	<line x1="5" x2="5" y1="25" y2="45" stroke-width="0.1" stroke="black" />
+	<circle cx="5" cy="25" r="2" fill="red" stroke="black" stroke-width="0.2" />
+	<circle cx="5" cy="45" r="2" fill="red" stroke="black" stroke-width="0.2" />
+	<line x1="5" x2="5" y1="45" y2="65" stroke-width="0.1" stroke="black" />
+	<circle cx="5" cy="45" r="2" fill="red" stroke="black" stroke-width="0.2" />
+	<circle cx="5" cy="65" r="2" fill="red" stroke="black" stroke-width="0.2" />
+	<line x1="5" x2="5" y1="65" y2="85" stroke-width="0.1" stroke="black" />
+	<circle cx="5" cy="65" r="2" fill="red" stroke="black" stroke-width="0.2" />
+	<circle cx="5" cy="85" r="2" fill="red" stroke="black" stroke-width="0.2" />
+	<line x1="5" x2="5" y1="85" y2="105" stroke-width="0.1" stroke="black" />
+	<circle cx="5" cy="85" r="2" fill="red" stroke="black" stroke-width="0.2" />
+	<circle cx="5" cy="105" r="2" fill="red" stroke="black" stroke-width="0.2" />
+</svg>
