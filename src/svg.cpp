@@ -37,6 +37,8 @@ constexpr int kScaleY = 20;
 void WriteSvg(const SvgImage& image, std::ostream& out) {
   pugi::xml_document doc;
   auto svg = doc.append_child("svg");
+  svg.append_attribute("xmlns").set_value("http://www.w3.org/2000/svg");
+  svg.append_attribute("version").set_value("1.0");
   MinAggregator min_x, min_y;
   MaxAggregator max_x, max_y;
   for (auto line : image.lines) {
@@ -76,5 +78,7 @@ void WriteSvg(const SvgImage& image, std::ostream& out) {
       circle.append_attribute("stroke-width").set_value("0.2");
     }
   }
+  svg.append_attribute("width").set_value(max_x.Value() + 2 * kPadding);
+  svg.append_attribute("height").set_value(max_y.Value() + 2 * kPadding);
   doc.save(out);
 }

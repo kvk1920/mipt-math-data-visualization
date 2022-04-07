@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<svg>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="310" height="90">
 	<rect x="0" width="310" y="0" height="90" fill="white" />
 	<line x1="155" x2="75" y1="5" y2="25" stroke-width="0.1" stroke="black" />
 	<circle cx="155" cy="5" r="2" fill="red" stroke="black" stroke-width="0.2" />
