@@ -1,6 +1,6 @@
 #include "svg.hpp"
 
-#include <pugixml.hpp>
+#include "pugixml.hpp"
 
 #include <algorithm>
 

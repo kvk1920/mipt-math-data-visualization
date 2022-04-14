@@ -2,7 +2,7 @@
 
 #include "common.hpp"
 
-#include <pugixml.hpp>
+#include "pugixml.hpp"
 
 #include <string_view>
 #include <unordered_map>
