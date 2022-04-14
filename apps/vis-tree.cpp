@@ -1,6 +1,6 @@
-#include <common.hpp>
-#include <graphml.hpp>
-#include <svg.hpp>
+#include "datavis/common.hpp"
+#include "datavis/graphml.hpp"
+#include "datavis/svg.hpp"
 
 #include <fstream>
 #include <iostream>
@@ -9,13 +9,13 @@
 
 struct Node {
   std::vector<Node*> children;
-  int leftmost_x;
-  int rightmost_x;
-  int x;
-  int y;
+  double leftmost_x;
+  double rightmost_x;
+  double x;
+  double y;
 };
 
-void CalculateTreePlacement(Node& node, int x_offset = 0, int level = 0) {
+void CalculateTreePlacement(Node& node, double x_offset = 0, double level = 0) {
   node.y = level;
   node.leftmost_x = x_offset;
   if (node.children.empty()) {
@@ -34,12 +34,12 @@ void CalculateTreePlacement(Node& node, int x_offset = 0, int level = 0) {
 }
 
 int main(int argc, char** argv) {
-  Graph g;
+  datavis::Graph g;
   VERIFY(argc == 3);
   {
     std::ifstream file(argv[1]);
     VERIFY(file.is_open());
-    g = ParseGraphML(file);
+    g = datavis::ParseGraphML(file);
   }
   std::vector<Node> nodes(g.num_nodes);
   std::unordered_set<int> maybe_root;
@@ -55,13 +55,15 @@ int main(int argc, char** argv) {
   CalculateTreePlacement(nodes[root]);
 
   std::ofstream out(argv[2]);
-  SvgImage result;
+  datavis::SvgImage result;
   for (auto& node : nodes) {
     for (auto* child : node.children) {
       result.lines.push_back({{node.x, node.y},
                               {child->x, child->y}});
     }
+    result.circles.push_back({{node.x, node.y}});
   }
   std::ofstream result_file(argv[2]);
-  WriteSvg(result, result_file);
+  //WriteSvg(result, result_file);
+  result.Write(result_file);
 }

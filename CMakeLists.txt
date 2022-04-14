@@ -14,6 +14,6 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(pugixml)
 
+add_subdirectory(extern)
 add_subdirectory(src)
 add_subdirectory(apps)
-

@@ -7,9 +7,11 @@
 #include <string_view>
 #include <unordered_map>
 
+namespace datavis {
+
 using namespace std::literals;
 
-Graph ParseGraphML(std::istream& in) {
+Graph ParseGraphML(std::istream &in) {
   pugi::xml_document doc;
   VERIFY(doc.load(in));
   auto root = doc.child("graphml");
@@ -18,7 +20,7 @@ Graph ParseGraphML(std::istream& in) {
   VERIFY(graph.attribute("edgedefault").value() == "directed"sv);
   Graph result{0};
   std::unordered_map<std::string, int> name_to_id;
-  for (const auto& record : graph.children()) {
+  for (const auto &record : graph.children()) {
     if (record.name() == "node"sv) {
       name_to_id[record.attribute("id").value()] = result.num_nodes++;
     } else if (record.name() == "edge"sv) {
@@ -31,3 +33,5 @@ Graph ParseGraphML(std::istream& in) {
   }
   return result;
 }
+
+}  // namespace datavis

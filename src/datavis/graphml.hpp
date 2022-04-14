@@ -3,6 +3,8 @@
 #include <iosfwd>
 #include <vector>
 
+namespace datavis {
+
 struct Graph {
   struct Edge {
     int source;
@@ -13,4 +15,6 @@ struct Graph {
   std::vector<Edge> edges;
 };
 
-Graph ParseGraphML(std::istream& in);
+Graph ParseGraphML(std::istream &in);
+
+}  // namespace datavis
