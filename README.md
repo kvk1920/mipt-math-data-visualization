@@ -24,3 +24,11 @@ cmake --build .
 ./vis-graph data/dag/dag_9_13.xml coffman_2.svg 2
 ./vis-graph data/dag/dag_9_13.xml lp.svg
 ```
+
+### vis-labels
+Первым аргументом путь до файла, вторым - путь до результата.
+```shell
+./vis-labels data/labels/sample1.txt sample1.svg
+./vis-labels data/labels/chain.txt chain.svg
+./vis-labels data/labels/impossible.txt impossible.svg
+```

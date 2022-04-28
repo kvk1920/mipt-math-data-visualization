@@ -47,12 +47,27 @@ void SvgImage::Write(std::ostream& out) const {
     update_minmax({circle.c.x, circle.c.y});
   }
 
+  if (fixed_size) {
+    min_x = min_y = 0;
+    max_x = fixed_size->x;
+    max_y = fixed_size->y;
+  }
+
   auto background = svg.append_child("rect");
   background.append_attribute("x").set_value(min_x * scale.x);
   background.append_attribute("width").set_value((max_x - min_x) * scale.x + padding * 2);
   background.append_attribute("y").set_value(min_y * scale.y);
   background.append_attribute("height").set_value((max_y - min_y) * scale.y + padding * 2);
   background.append_attribute("fill").set_value("white");
+
+  for (auto rect : rects) {
+    auto record = svg.append_child("rect");
+    record.append_attribute("x").set_value(rect.p.x);
+    record.append_attribute("y").set_value(rect.p.y);
+    record.append_attribute("width").set_value(rect.len.x);
+    record.append_attribute("height").set_value(rect.len.y);
+    record.append_attribute("style").set_value("fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)");
+  }
 
   for (auto line : lines) {
     auto record = svg.append_child("line");

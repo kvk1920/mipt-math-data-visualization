@@ -6,3 +6,6 @@ target_link_libraries(vis-tree PRIVATE datavis)
 
 add_executable(vis-dag vis-dag.cpp)
 target_link_libraries(vis-dag PRIVATE datavis alglib)
+
+add_executable(vis-labels vis-labels.cpp)
+target_link_libraries(vis-labels PRIVATE datavis)

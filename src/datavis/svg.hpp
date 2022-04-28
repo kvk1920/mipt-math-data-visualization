@@ -1,6 +1,7 @@
 #include <iosfwd>
 
 #include <vector>
+#include <optional>
 
 namespace datavis {
 
@@ -19,8 +20,14 @@ struct SvgImage {
     double r{2};
   };
 
+  struct Rect {
+    Point p, len;
+  };
+
+  std::optional<Point> fixed_size;
   std::vector<Line> lines;
   std::vector<Circle> circles;
+  std::vector<Rect> rects;
   double padding{5};
   Point scale{10, 20};
 
